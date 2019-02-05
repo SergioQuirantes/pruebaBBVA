@@ -1,5 +1,7 @@
 package com.pruebaSergio.model;
 
+import java.util.Date;
+
 import com.googlecode.objectify.annotation.Cache;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
@@ -17,7 +19,7 @@ public class Libro {
 	
 	private String autor;
 	
-	private int anoPublicacion;
+	private Date anoPublicacion;
 	
 	private String genero;
 
@@ -45,11 +47,11 @@ public class Libro {
 		this.autor = autor;
 	}
 
-	public int getAnoPublicacion() {
+	public Date getAnoPublicacion() {
 		return anoPublicacion;
 	}
 
-	public void setAnoPublicacion(int anoPublicacion) {
+	public void setAnoPublicacion(Date anoPublicacion) {
 		this.anoPublicacion = anoPublicacion;
 	}
 
