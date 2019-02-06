@@ -13,8 +13,8 @@ public class LibroDAO {
 	
 	
 	/**
-	 * 
-	 * @return lista de libros
+	 * Devuelve la lista de todos los libros almacenados
+	 * @return List<Libro>
 	 */
 	public List<Libro> list(){
 		LOGGER.info("Devolviendo lista de libros");
@@ -23,14 +23,37 @@ public class LibroDAO {
 	
 	
 	/**
-	 * 
+	 * Devuelve un libro por la ID
 	 * @param id
-	 * @return Libro correspondiente a la ID
+	 * @return Libro
 	 */
 	public Libro get(Long id) {
 		LOGGER.info("Devolviendo libro con id " + id);
 		return ObjectifyService.ofy().load().type(Libro.class).id(id).now();
 	}
 	
+	 /**
+	  * Guarda un libro
+	  * @param libro
+	  */
+	public void save(Libro libro) {
+		if(libro == null) {
+			throw new IllegalArgumentException("null test object");
+		}
+		LOGGER.info("Guardando libro " + libro.getId());
+		ObjectifyService.ofy().save().entity(libro).now();
+	}
+	
+	/**
+	 * Elimina un libro
+	 * @param libro
+	 */
+	public void delete(Libro libro) {
+		if(libro == null) {
+			throw new IllegalArgumentException("null test object");
+		}
+		LOGGER.info("Borrando libro " + libro.getId());
+		ObjectifyService.ofy().delete().entity(libro);
+	}
 	
 }
