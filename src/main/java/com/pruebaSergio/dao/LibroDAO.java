@@ -18,7 +18,7 @@ public class LibroDAO {
 	 */
 	public List<Libro> list(){
 		LOGGER.info("Devolviendo lista de libros");
-		return ObjectifyService.ofy().load().type(Libro.class).order("id").list();
+		return ObjectifyService.ofy().load().type(Libro.class).order("autor").list();
 		}
 	
 	
