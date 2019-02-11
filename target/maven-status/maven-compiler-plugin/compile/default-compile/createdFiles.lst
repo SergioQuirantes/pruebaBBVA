@@ -1,0 +1,7 @@
+com\pruebaSergio\rest\CustomJacksonJsonProvider.class
+com\pruebaSergio\dao\BusquedaParcial.class
+com\pruebaSergio\dao\LibroDAO.class
+com\pruebaSergio\rest\CustomJacksonJsonProvider$1.class
+com\pruebaSergio\rest\LibroResource.class
+com\pruebaSergio\model\Libro.class
+com\pruebaSergio\config\ObjectifyConfig.class
