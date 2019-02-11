@@ -1,10 +1,9 @@
 package com.pruebaSergio.dao;
 
-import com.google.appengine.api.search.Document;
-import com.google.appengine.api.search.Field;
-import com.google.appengine.api.search.Index;
-import com.google.appengine.api.search.IndexSpec;
-import com.google.appengine.api.search.SearchServiceFactory;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.appengine.api.search.*;
 import com.pruebaSergio.model.Libro;
 
 
@@ -53,6 +52,21 @@ public class BusquedaParcial {
 		index.delete(libro.getId().toString());
 	}
 	
+	
+	public List<Long> buscar(String texto){
+		String query = "nombre = " + texto + " OR autor = " + texto;
+		
+		Results<ScoredDocument> results = index.search(query);
+		
+		List<Long> idLibros = new ArrayList<>();
+		
+		for(ScoredDocument document : results) {
+			idLibros.add(Long.valueOf(document.getId()));
+		}
+		
+		return idLibros;
+		
+	}
 	
 	/**
 	 * Devuelve un String con cada una de las palabras desglosadas en diferentes prefijos posibles

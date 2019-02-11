@@ -1,5 +1,7 @@
 package com.pruebaSergio.rest;
 
+import java.util.Collection;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -64,6 +66,19 @@ public class LibroResource {
 		}
 		
 		return Response.ok().build();
+		
+	}
+	
+	@DELETE
+	@Path("/search/{text}")
+	@ApiOperation("Busca uno o varios libros que coincidan con el texto")
+	public Response search(@PathParam("text") String text) {
+		Collection<Libro> listaLibros = libroDAO.search(text);
+		
+		if(listaLibros.isEmpty()) {
+			return Response.status(Response.Status.NOT_FOUND).build();
+		}
+		return Response.ok(listaLibros).build();
 		
 	}
 	
