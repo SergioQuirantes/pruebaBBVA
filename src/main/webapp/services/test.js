@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('test')
+angular.module('pruebaBBVA')
     .service('test', function ($http) {
         return {
             list: function (success) {

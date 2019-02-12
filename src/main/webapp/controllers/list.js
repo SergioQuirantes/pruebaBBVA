@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('test')
+angular.module('pruebaBBVA')
     .controller('ListCtrl', function ($scope, test) {
 
         $scope.load = function() {
