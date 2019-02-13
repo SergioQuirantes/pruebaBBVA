@@ -1,17 +1,29 @@
-<h3>List of tests</h3>
-<div ng-repeat="item in list">
-    <a href="/#/{{item.id}}">{{item.data}}</a>
-</div>
+<h3>Lista de libros</h3>
 
-<h3>New test</h3>
+<table>
+	<tr>
+		<th>Nombre</th>
+		<th>Autor</th>
+	</tr>
+	<tr ng-repeat="item in list">
+		<td><a href="/#/{{item.id}}">{{item.nombre}}</a></td>
+		<td>{{item.autor}}</td>
+	</tr>
+</table>
+
+
+
+<h3>Nuevo libro</h3>
 <div>
-    <div>
-        <label for="id">id</label>
-        <input id="id" ng-model="form.id"/>
-    </div>
-    <div>
-        <label for="data">data</label>
-        <input id="data" ng-model="form.data"/>
-    </div>
-    <button ng-click="save()">Save</button>
+	<form>
+		<label for="data">Nombre</label> 
+		<input type="text" id="data" ng-model="form.nombre" /> <br />
+		<label for="autor">Autor</label> 
+		<input type="text" id="autor" ng-model="form.autor"> <br />
+		<label for="anoPublicacion">Fecha de publicacion</label> 
+		<input type="date" id="anoPublicacion" ng-model="form.anoPublicacion" /> <br />
+		<label for="genero">Genero</label>
+		<input type="text" id="genero" ng-model="form.genero"> <br />
+		<input type="button" value="Guardar" ng-click="save()" />
+	</form>
 </div>

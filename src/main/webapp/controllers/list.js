@@ -1,16 +1,16 @@
 'use strict';
 
 angular.module('pruebaBBVA')
-    .controller('ListCtrl', function ($scope, test) {
+    .controller('ListCtrl', function ($scope, libroService) {
 
         $scope.load = function() {
-            test.list(function (list) {
+            libroService.list(function (list) {
                 $scope.list = list.data;
             });
         }
 
         $scope.save = function() {
-            test.save($scope.form, function() {
+            libroService.save($scope.form, function() {
                 $scope.load();
             });
         }

@@ -1,6 +1,6 @@
 'use strict';
 angular
-    .module('test', ['ngRoute'])
+    .module('pruebaBBVA', ['ngRoute'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
