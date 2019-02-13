@@ -1,7 +1,6 @@
 package com.pruebaSergio.rest;
 
 import java.util.Collection;
-import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -27,11 +26,10 @@ public class LibroResource {
 	public LibroResource() {
 		this.libroDAO = new LibroDAO();
 	}
-	
-	
+		
 	@GET
 	@ApiOperation("Muestra la lista de todos los Libros")
-	public Response list() {
+	public Response list() { 
 		return Response.ok(libroDAO.list()).build();
 	}
 	
@@ -65,15 +63,16 @@ public class LibroResource {
 		if(libro == null) {
 			return Response.status(Response.Status.NOT_FOUND).build();
 		}
-		
+		libroDAO.delete(libro);
 		return Response.ok().build();
 		
 	}
 	
-	@DELETE
+	@GET
 	@Path("/search/{text}")
 	@ApiOperation("Busca uno o varios libros que coincidan con el texto")
 	public Response search(@PathParam("text") String text) {
+		System.out.println("Buscando");
 		Collection<Libro> listaLibros = libroDAO.search(text);
 		
 		if(listaLibros.isEmpty()) {

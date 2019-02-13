@@ -8,6 +8,15 @@ angular.module('pruebaBBVA')
             },
             save: function (libro, success) {
                 return $http.post("/rest/libro", libro).then(success);
+            },
+            get: function(id, success){
+            	return $http.get("/rest/libro/" + id).then(success);
+            },
+            delete: function(id, success){
+            	return $http.delete("/rest/libro/" + id).then(success);
+            },
+            search: function(text, success){
+            	return $http.get("/rest/libro/search/" + text).then(success);
             }
         };
     });

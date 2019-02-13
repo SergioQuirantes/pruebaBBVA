@@ -19,7 +19,7 @@ public class Libro {
 	
 	private String autor;
 	
-	private Date anoPublicacion;
+	private int anoPublicacion;
 	
 	private String genero;
 
@@ -47,11 +47,11 @@ public class Libro {
 		this.autor = autor;
 	}
 
-	public Date getAnoPublicacion() {
+	public int getAnoPublicacion() {
 		return anoPublicacion;
 	}
 
-	public void setAnoPublicacion(Date anoPublicacion) {
+	public void setAnoPublicacion(int anoPublicacion) {
 		this.anoPublicacion = anoPublicacion;
 	}
 

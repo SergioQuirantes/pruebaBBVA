@@ -36,7 +36,7 @@ public class BusquedaParcial {
 				.setId(libro.getId().toString())
 				.addField(Field.newBuilder().setName("nombre").setText(desglosar(libro.getNombre())))
 				.addField(Field.newBuilder().setName("autor").setText(desglosar(libro.getAutor())))
-				.addField(Field.newBuilder().setName("anoPublicacion").setDate(libro.getAnoPublicacion()))
+				.addField(Field.newBuilder().setName("anoPublicacion").setNumber(libro.getAnoPublicacion()))
 				.addField(Field.newBuilder().setName("genero").setText(libro.getGenero()))
 				.build();
 		
