@@ -62,6 +62,13 @@ public class Libro {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
+
+	@Override
+	public String toString() {
+		return "Libro [id=" + id + ", nombre=" + nombre + ", autor=" + autor + ", anoPublicacion=" + anoPublicacion
+				+ ", genero=" + genero + "]";
+	}
+	
 	
 	
 }

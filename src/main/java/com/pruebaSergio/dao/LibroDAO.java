@@ -23,7 +23,7 @@ public class LibroDAO {
 	 */
 	public List<Libro> list(){
 		LOGGER.info("Devolviendo lista de libros");
-		return ObjectifyService.ofy().load().type(Libro.class).order("autor").list();
+		return ObjectifyService.ofy().load().type(Libro.class).list();
 		}
 	
 	
@@ -45,7 +45,7 @@ public class LibroDAO {
 		if(libro == null) {
 			throw new IllegalArgumentException("null libro object");
 		}
-		LOGGER.info("Guardando libro " + libro.getId());
+		LOGGER.info("Guardando libro " + libro.getNombre());
 		ObjectifyService.ofy().save().entity(libro).now();
 		
 		busquedaParcial.indexar(libro);
