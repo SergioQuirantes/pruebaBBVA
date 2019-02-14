@@ -72,11 +72,9 @@ public class LibroResource {
 	@Path("/search/{text}")
 	@ApiOperation("Busca uno o varios libros que coincidan con el texto")
 	public Response search(@PathParam("text") String text) {
-		System.out.println("Buscando");
 		Collection<Libro> listaLibros = libroDAO.search(text);
 		
 		if(listaLibros.isEmpty()) {
-			System.out.println("No existe");
 			return Response.status(Response.Status.NOT_FOUND).build();
 		}
 		return Response.ok(listaLibros).build();
