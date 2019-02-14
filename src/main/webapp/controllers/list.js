@@ -22,9 +22,16 @@ angular.module('pruebaBBVA')
         }
         
         $scope.search = function(){
-        	libroService.search($scope.busqueda, function(list){
-        		$scope.list = list.data;
-        	});
+        	
+        	if($scope.busqueda == ""){
+        		$scope.load();
+        	}
+        	else{
+        		libroService.search($scope.busqueda, function(list){
+                	$scope.list = list.data;
+            	});
+        	}
+        	
         }
         
         $scope.form = {};

@@ -76,6 +76,7 @@ public class LibroResource {
 		Collection<Libro> listaLibros = libroDAO.search(text);
 		
 		if(listaLibros.isEmpty()) {
+			System.out.println("No existe");
 			return Response.status(Response.Status.NOT_FOUND).build();
 		}
 		return Response.ok(listaLibros).build();
